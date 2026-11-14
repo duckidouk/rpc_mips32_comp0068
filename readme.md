@@ -4,7 +4,11 @@ RPC must:
   n = units
 
   1. Recharge: C n
+    - Battery goes up by n
+    - Time moves
   2. Solar align: S 2xn 
+    - Battery goes up by 2xn 
+    - time moves
   3. Dock: D 2xn 
   4. traverse: T 3xn 
   5. Reset: R 
@@ -44,3 +48,10 @@ RPC must:
 7. time elapsed: 7 seconds. -14n. [t=15]. Op t3 -> error message [t=16]
 8. r [t=17]
 9. q: mission end
+
+
+ACTUAL FEATURES:
+
+  - max battery check. Check that input battery doesn't go over MBC, otherwise error message 
+  - battery<0. If battery goes below zero the rover must shut down 
+  - Time passing. t+=1 Always includes a PDR
