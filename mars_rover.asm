@@ -5,15 +5,9 @@ pdr_str: .asciiz "Please enter the power drain rate: "
 time_display_str: .asciiz "Amount of seconds since beginning of mission: t= "
 error_ibc_isgreaterthan_mbc: .asciiz "Error: The Initial Battery Charge is greater than the Maximum Battery Capacity. \n"
 
-mbc:.word 0
-ibc: .word 0 
-pdr: .word 0 
-
-
-
-
-
-
+#mbc:.word 0
+#ibc: .word 0 
+#pdr: .word 0 
 
  	.text
  	.globl main

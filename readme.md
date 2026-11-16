@@ -52,6 +52,13 @@ RPC must:
 
 ACTUAL FEATURES:
 
-  - max battery check. Check that input battery doesn't go over MBC, otherwise error message 
-  - battery<0. If battery goes below zero the rover must shut down 
-  - Time passing. t+=1 Always includes a PDR
+  - max battery check. Check that input battery doesn't go over MBC, otherwise error message: Harris  
+  - battery<=0. If battery goes below zero the rover must shut down + print message 'you're a terrible operator': Yiqin
+  - Time passing. t+=1. Always includes a PDR and update time register: Hongyu 
+  - Check operator's input: error msg and ask for reprompt with  un-recognised commands.. ie 'y' or multiple letters, or integer when expecting a char: Ismail   
+  - Make battery level visible in terminal: Lisa 
+
+
+*potential extra features:*
+
+  - Store all of the variables in one register by storing one var per byte instead of a word.
