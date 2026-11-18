@@ -52,13 +52,19 @@ RPC must:
 
 ACTUAL FEATURES:
 
-  - max battery check. Check that input battery doesn't go over MBC, otherwise error message: Harris  
-  - battery<=0. If battery goes below zero the rover must shut down + print message 'you're a terrible operator': Yiqin
+  - max battery check. Check that input battery doesn't go over MBC, otherwise error message: Duc 
+  - battery<=0. If battery goes below zero the rover must shut down + print message 'you're a terrible operator': Duc implement 
   - Time passing. t+=1. Always includes a PDR and update time register: Hongyu 
-  - Check operator's input: error msg and ask for reprompt with  un-recognised commands.. ie 'y' or multiple letters, or integer when expecting a char: Ismail   
+  - Check operator's input: error msg and ask for reprompt with  un-recognised commands.. ie 'y' or multiple letters, or integer when expecting a char: Haris  
   - Make battery level visible in terminal: Lisa 
-
+  - Docking: Ismail 
+  - Keyboard interruption: TBC (Ismail)(Haris)
 
 *potential extra features:*
 
   - Store all of the variables in one register by storing one var per byte instead of a word.
+  - Slow traverse (goes by multiple of 1 instead of 3)
+  - error message when battery is low. Keep track of BC and Traversal cost so as to tell OPERATOR when battery will >0. 
+  - Command report when you quit. A summary of the mission 
+  - A suggestion system --> Suggests a better approach and then implements it
+  - Create a homebase and keep track of how far we're from the docking station
