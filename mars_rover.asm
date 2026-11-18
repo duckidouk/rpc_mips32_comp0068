@@ -4,6 +4,7 @@ ibc_str: .asciiz "Please enter the initial battery charge: "
 pdr_str: .asciiz "Please enter the power drain rate: "
 time_display_str: .asciiz "Amount of seconds since beginning of mission: t= "
 error_ibc_isgreaterthan_mbc: .asciiz "Error: The Initial Battery Charge is greater than the Maximum Battery Capacity. \n"
+checked_offline: .asciiz "Error, charge level equal to or less than 0. Rover is offline!\n"
 
 #mbc:.word 0
 #ibc: .word 0 
@@ -92,3 +93,25 @@ batt_save:
 	#jal pdr
 	 
 # program asks the operator for input
+
+
+# Input: $t0 = current charge, $s4 = offline flag.
+# Updates $t0 and $s4. Uses $t3, $a0 and $v0.
+Check_Battery:
+	#check if current charge over than zero or not
+	slt $t2, $zero, $t0 
+	bne $t2, $zero, Check_Battery_Done
+	
+	#if current charge lower than zero, then make the battery to zero and offline setting.
+	addu $t0, $zero, $zero
+	bne $s4, $zero, Check_Battery_Done
+	addiu $s4, $zero, 1
+	
+	#print failure infor	
+	li $v0, 4 
+ 	la $a0, checked_offline
+ 	syscall 
+	
+Check_Battery_Done:
+	jr $ra
+	
